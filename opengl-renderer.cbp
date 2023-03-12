@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="opengl-renderer" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/opengl-renderer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="src" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/opengl-renderer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-fexceptions" />
+					<Add option="-DNDEBUG" />
+					<Add directory="src" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c17" />
+			<Add option="-m64" />
+			<Add option="-DGLFW_INCLUDE_NONE" />
+			<Add directory="dependencies/include" />
+		</Compiler>
+		<Linker>
+			<Add option="-static-libstdc++" />
+			<Add option="-m64" />
+			<Add library="glfw3" />
+			<Add library="gdi32" />
+			<Add library="opengl32" />
+			<Add directory="dependencies/lib" />
+		</Linker>
+		<Unit filename="shaders/FirstTriangle.frag" />
+		<Unit filename="shaders/FirstTriangle.vert" />
+		<Unit filename="shaders/MonkeyWithLightLight.frag" />
+		<Unit filename="shaders/MonkeyWithLightLight.vert" />
+		<Unit filename="shaders/MonkeyWithLightModel(1).frag" />
+		<Unit filename="shaders/MonkeyWithLightModel.frag" />
+		<Unit filename="shaders/MonkeyWithLightModel.vert" />
+		<Unit filename="shaders/Quad.frag" />
+		<Unit filename="shaders/Quad.vert" />
+		<Unit filename="shaders/Shader3D.frag" />
+		<Unit filename="shaders/Shader3D.vert" />
+		<Unit filename="src/Drawable.cpp" />
+		<Unit filename="src/Drawable.hpp" />
+		<Unit filename="src/DrawableCube.cpp" />
+		<Unit filename="src/DrawableCube.hpp" />
+		<Unit filename="src/MonkeyWithLight/MonkeyWithLight.cpp" />
+		<Unit filename="src/MonkeyWithLight/MonkeyWithLight.hpp" />
+		<Unit filename="src/MonkeyWithLight/OBJLoader.cpp" />
+		<Unit filename="src/MonkeyWithLight/OBJLoader.h" />
+		<Unit filename="src/MonkeyWithLight/xxhash32.cpp" />
+		<Unit filename="src/MonkeyWithLight/xxhash32.h" />
+		<Unit filename="src/MonkeyWithLight/xxhash64.cpp" />
+		<Unit filename="src/MonkeyWithLight/xxhash64.h" />
+		<Unit filename="src/OpenGLRenderer.cpp" />
+		<Unit filename="src/OpenGLRenderer.hpp" />
+		<Unit filename="src/ecs/builtin_comps/ecsBuiltinTransform.cpp" />
+		<Unit filename="src/ecs/builtin_comps/ecsBuiltinTransform.hpp" />
+		<Unit filename="src/ecs/ecsComponent.cpp" />
+		<Unit filename="src/ecs/ecsComponent.hpp" />
+		<Unit filename="src/ecs/ecsEntity.cpp" />
+		<Unit filename="src/ecs/ecsEntity.hpp" />
+		<Unit filename="src/engine/glrAssert.hpp" />
+		<Unit filename="src/engine/glrEngine.cpp" />
+		<Unit filename="src/engine/glrEngine.hpp" />
+		<Unit filename="src/engine/glrKeys.hpp" />
+		<Unit filename="src/engine/glrUtility.hpp" />
+		<Unit filename="src/engine/glrUtilityShader.cpp" />
+		<Unit filename="src/engine/glrWindow.cpp" />
+		<Unit filename="src/engine/glrWindow.hpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/samples/sample_cube_3d.cpp" />
+		<Unit filename="src/samples/sample_cube_3d.hpp" />
+		<Unit filename="src/samples/sample_quad.cpp" />
+		<Unit filename="src/samples/sample_quad.hpp" />
+		<Unit filename="src/samples/sample_quad_3d.cpp" />
+		<Unit filename="src/samples/sample_quad_3d.hpp" />
+		<Unit filename="src/third_party/glad.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/third_party/glad.h" />
+		<Unit filename="src/third_party/imgui/imconfig.h" />
+		<Unit filename="src/third_party/imgui/imgui.cpp" />
+		<Unit filename="src/third_party/imgui/imgui.h" />
+		<Unit filename="src/third_party/imgui/imgui_demo.cpp" />
+		<Unit filename="src/third_party/imgui/imgui_draw.cpp" />
+		<Unit filename="src/third_party/imgui/imgui_impl_glfw.cpp" />
+		<Unit filename="src/third_party/imgui/imgui_impl_glfw.h" />
+		<Unit filename="src/third_party/imgui/imgui_impl_opengl3.cpp" />
+		<Unit filename="src/third_party/imgui/imgui_impl_opengl3.h" />
+		<Unit filename="src/third_party/imgui/imgui_impl_opengl3_loader.h" />
+		<Unit filename="src/third_party/imgui/imgui_internal.h" />
+		<Unit filename="src/third_party/imgui/imgui_tables.cpp" />
+		<Unit filename="src/third_party/imgui/imgui_widgets.cpp" />
+		<Unit filename="src/third_party/imgui/imstb_rectpack.h" />
+		<Unit filename="src/third_party/imgui/imstb_textedit.h" />
+		<Unit filename="src/third_party/imgui/imstb_truetype.h" />
+		<Unit filename="src/third_party/khrplatform.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
