@@ -21,6 +21,7 @@
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-fexceptions" />
@@ -31,9 +32,55 @@
 					<Add option="-s" />
 				</Linker>
 			</Target>
+			<Target title="Debug x86">
+				<Option output="bin/Debug/x86/opengl-renderer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/x86/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_compiler_x86" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Option projectLibDirsRelation="1" />
+				<Compiler>
+					<Add option="-std=c++17" />
+					<Add option="-std=c17" />
+					<Add option="-m32" />
+					<Add option="-g" />
+					<Add option="-DGLFW_INCLUDE_NONE" />
+				</Compiler>
+				<Linker>
+					<Add option="-m32" />
+					<Add directory="dependencies/lib/x86" />
+				</Linker>
+			</Target>
+			<Target title="Release x86">
+				<Option output="bin/Release/x86/opengl-renderer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/x86/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_compiler_x86" />
+				<Option use_console_runner="0" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Option projectLibDirsRelation="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++17" />
+					<Add option="-std=c17" />
+					<Add option="-m32" />
+					<Add option="-fexceptions" />
+					<Add option="-DNDEBUG" />
+					<Add option="-DGLFW_INCLUDE_NONE" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-static-libstdc++" />
+					<Add option="-static-libgcc" />
+					<Add option="-static" />
+					<Add option="-m32" />
+					<Add directory="dependencies/lib/x86" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++17" />
 			<Add option="-std=c17" />
 			<Add option="-m64" />
 			<Add option="-DGLFW_INCLUDE_NONE" />
@@ -41,6 +88,8 @@
 		</Compiler>
 		<Linker>
 			<Add option="-static-libstdc++" />
+			<Add option="-static-libgcc" />
+			<Add option="-static" />
 			<Add option="-m64" />
 			<Add library="glfw3" />
 			<Add library="gdi32" />
