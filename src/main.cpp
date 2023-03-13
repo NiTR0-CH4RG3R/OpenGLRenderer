@@ -4,13 +4,16 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
+#include <cstdint>
 #include <unistd.h>
 
 int main( int argc, char* argv[] ) {
 
-
     std::string filepath( argv[0] );
     std::string filedir = filepath.substr( 0, filepath.find_last_of( "/\\" ) );
+#if INTPTR_MAX == INT32_MAX
+    filedir = filedir.substr( 0, filedir.find_last_of( "/\\" ) );
+#endif // INTPTR_MAX == INT32_MAX
     std::string bindir = filedir.substr( 0, filedir.find_last_of( "/\\" ) );
     std::string rootdir = bindir.substr( 0, bindir.find_last_of( "/\\" ) );
     chdir(rootdir.c_str());
