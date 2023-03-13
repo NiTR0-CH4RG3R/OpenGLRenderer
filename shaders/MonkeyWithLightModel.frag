@@ -15,6 +15,22 @@ uniform float u_fSpecularPower;
 
 out vec4 FragColor;
 
+vec3 GetHammard( vec3 i, vec3 j ) {
+    return vec3(
+                i.x * j.x,
+                i.y * j.y,
+                i.z * j.z
+                );
+}
+
+vec3 Saturate( vec3 i ) {
+    return vec3(
+        min(1.0, max(i.x, 0.0)),
+		min(1.0, max(i.y, 0.0)),
+		min(1.0, max(i.z, 0.0))
+                );
+}
+
 void main() {
     vec3 v3Normal = normalize( i_v3Normal );
     vec3 L = i_v3ViewPosition - u_f3PLposition;
@@ -35,6 +51,6 @@ void main() {
 
     vec3 v3Color = u_f3Mcolor * min( 1.0, max( 0.0, dot(  normalize( -L ), v3Normal ) ) );
 
-    vec3 v3SpecularColor = clamp( u_f3Mcolor * v3SpecularAmbient, 0.0, 1.0 );
+    vec3 v3SpecularColor = Saturate( GetHammard( u_f3Mcolor, v3SpecularAmbient ) );
     FragColor = vec4( v3SpecularColor, 1.0);
 }

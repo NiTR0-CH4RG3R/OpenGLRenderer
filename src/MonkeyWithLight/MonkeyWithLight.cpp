@@ -156,7 +156,7 @@ void MonkeyWithLight::OnStart() {
 void MonkeyWithLight::OnUpdate( const float dt ) {
 
 
-    glClearColor( v3ClearColor.x, v3ClearColor.y, v3ClearColor.z, 1.0f );
+    glClearColor( 0.0f, 0.0f, 0.0f, 1.0f );
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
     glm::mat4 camera_rotation_matrix = glm::rotate( glm::mat4(1.0f), v3CameraRotation.y, glm::vec3( 0.0f, 1.0f, 0.0f ) );
@@ -175,18 +175,15 @@ void MonkeyWithLight::OnUpdate( const float dt ) {
     if ( pWindow->GetKey( glr::Keys::K ) ) { v3CameraRotation.x += fCameraRotateSpeed * dt; v3CameraRotation.x = v3CameraRotation.x >= ( 2.0f * glm::pi<float>() ) ? 0.0f : v3CameraRotation.x; }
     if ( pWindow->GetKey( glr::Keys::J ) ) { v3CameraRotation.y -= fCameraRotateSpeed * dt; v3CameraRotation.y = v3CameraRotation.y <= 0.0f ? ( 2.0f * glm::pi<float>() ) : v3CameraRotation.y; }
     if ( pWindow->GetKey( glr::Keys::L ) ) { v3CameraRotation.y += fCameraRotateSpeed * dt; v3CameraRotation.y = v3CameraRotation.y >= ( 2.0f * glm::pi<float>() ) ? 0.0f : v3CameraRotation.y; }
-//    if ( pWindow->GetKey( glr::Keys::U ) ) { v3CameraRotation.z -= fCameraRotateSpeed * dt; v3CameraRotation.z = v3CameraRotation.z <= 0.0f ? ( 2.0f * glm::pi<float>() ) : v3CameraRotation.z; }
-//    if ( pWindow->GetKey( glr::Keys::O ) ) { v3CameraRotation.z += fCameraRotateSpeed * dt; v3CameraRotation.z = v3CameraRotation.z >= ( 2.0f * glm::pi<float>() ) ? 0.0f : v3CameraRotation.z; }
+    if ( pWindow->GetKey( glr::Keys::U ) ) { v3CameraRotation.z -= fCameraRotateSpeed * dt; v3CameraRotation.z = v3CameraRotation.z <= 0.0f ? ( 2.0f * glm::pi<float>() ) : v3CameraRotation.z; }
+    if ( pWindow->GetKey( glr::Keys::O ) ) { v3CameraRotation.z += fCameraRotateSpeed * dt; v3CameraRotation.z = v3CameraRotation.z >= ( 2.0f * glm::pi<float>() ) ? 0.0f : v3CameraRotation.z; }
 
-    glm::mat4 pointlight_rotate_matrix = glm::rotate( glm::mat4(1.0f), v3CameraRotation.y, glm::vec3( 0.0f, 1.0f, 0.0f ) );
-    if ( pWindow->GetKey( glr::Keys::KP_8 ) ) { v3PointLightPosition += glm::vec3( pointlight_rotate_matrix * glm::vec4( 0.0f, 0.0f, 1.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
-    if ( pWindow->GetKey( glr::Keys::KP_2 ) ) { v3PointLightPosition -= glm::vec3( pointlight_rotate_matrix * glm::vec4( 0.0f, 0.0f, 1.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
-    if ( pWindow->GetKey( glr::Keys::KP_6 ) ) { v3PointLightPosition += glm::vec3( pointlight_rotate_matrix * glm::vec4( 1.0f, 0.0f, 0.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
-    if ( pWindow->GetKey( glr::Keys::KP_4 ) ) { v3PointLightPosition -= glm::vec3( pointlight_rotate_matrix * glm::vec4( 1.0f, 0.0f, 0.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
-    if ( pWindow->GetKey( glr::Keys::KP_7 ) ) { v3PointLightPosition.y += fCameraMoveSpeed * dt; }
-    if ( pWindow->GetKey( glr::Keys::KP_9 ) ) { v3PointLightPosition.y -= fCameraMoveSpeed * dt; }
-//    if ( pWindow->GetKey( glr::Keys::KP_7 ) ) { v3PointLightPosition += glm::vec3( camera_rotation_matrix * glm::vec4( 0.0f, 1.0f, 0.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
-//    if ( pWindow->GetKey( glr::Keys::KP_9 ) ) { v3PointLightPosition -= glm::vec3( camera_rotation_matrix * glm::vec4( 0.0f, 1.0f, 0.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
+    if ( pWindow->GetKey( glr::Keys::KP_8 ) ) { v3PointLightPosition += glm::vec3( camera_rotation_matrix * glm::vec4( 0.0f, 0.0f, 1.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
+    if ( pWindow->GetKey( glr::Keys::KP_2 ) ) { v3PointLightPosition -= glm::vec3( camera_rotation_matrix * glm::vec4( 0.0f, 0.0f, 1.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
+    if ( pWindow->GetKey( glr::Keys::KP_6 ) ) { v3PointLightPosition += glm::vec3( camera_rotation_matrix * glm::vec4( 1.0f, 0.0f, 0.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
+    if ( pWindow->GetKey( glr::Keys::KP_4 ) ) { v3PointLightPosition -= glm::vec3( camera_rotation_matrix * glm::vec4( 1.0f, 0.0f, 0.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
+    if ( pWindow->GetKey( glr::Keys::KP_7 ) ) { v3PointLightPosition += glm::vec3( camera_rotation_matrix * glm::vec4( 0.0f, 1.0f, 0.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
+    if ( pWindow->GetKey( glr::Keys::KP_9 ) ) { v3PointLightPosition -= glm::vec3( camera_rotation_matrix * glm::vec4( 0.0f, 1.0f, 0.0f, 1.0f ) * fCameraMoveSpeed * dt ); }
 
     if ( pWindow->GetKey( glr::Keys::M ) ) { fSpecularIntensity =  std::max( 0.0f, fSpecularIntensity + 1.0f * dt ); }
     if ( pWindow->GetKey( glr::Keys::N ) ) { fSpecularIntensity =  std::max( 0.0f, fSpecularIntensity - 1.0f * dt ); }
@@ -204,8 +201,6 @@ void MonkeyWithLight::OnUpdate( const float dt ) {
     {
         ImGui::Begin("Propoerties");
         ImGui::Text("frametime : %.3f ms\nframerate : %.1f FPS\n", 1000.0f / pIO->Framerate, pIO->Framerate);
-
-        ImGui::ColorEdit3("Clear Color", (float*)&v3ClearColor );
 
         ImGui::Text( "Light Propoerties" );
         ImGui::DragFloat3( "Light Position", (float*)&v3PointLightPosition, 0.1f, -100.0f, 100.0f, NULL, 0 );
