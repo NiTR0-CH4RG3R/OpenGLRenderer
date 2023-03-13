@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1678601314 source:d:\dev\codeblocks-projects\opengl-renderer\src\main.cpp
+1678681332 source:d:\dev\codeblocks-projects\opengl-renderer\src\main.cpp
 	"OpenGLRenderer.hpp"
 	"MonkeyWithLight/MonkeyWithLight.hpp"
 	<iostream>
 	<string>
 	<cstdio>
+	<cstdint>
 	<unistd.h>
 
 1658496778 d:\dev\codeblocks-projects\opengl-renderer\dependencies\include\glfw\glfw3.h
