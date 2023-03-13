@@ -17,6 +17,8 @@ private:
     void OnStop() override;
 
 private:
+    glm::vec3 v3ClearColor = glm::vec3( 0.14f, 0.08f, 0.19f );
+
     GLuint nModelVBO = 0;
     GLuint nModelEBO = 0;
     GLuint nModelVAO = 0;
@@ -40,7 +42,7 @@ private:
 
     glm::vec3 v3PointLightPosition =    glm::vec3(0.0f, 0.0f, 3.0f);
     glm::vec3 v3PointLightColor =       glm::vec3(1.0f, 1.0f, 1.0f);
-    glm::vec3 v3PointLightAmbiant =     glm::vec3(0.1f, 0.1f, 0.1f);
+    glm::vec3 v3PointLightAmbiant =     glm::vec3(0.14f, 0.08f, 0.19f );
     glm::vec3 v3PointLightAttenuation = glm::vec3(0.0028f, 0.027f, 1.0f);
 
     GLuint nPointLightVBO = 0;
